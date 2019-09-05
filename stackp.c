@@ -46,13 +46,31 @@ else
 free(temp);
 temp=*q;
 }
+}
 
+void StPeek(sn **q)
+{
+sn *temp;
+temp=*q;
+if(temp!=NULL)
+{
+printf("\ntop element is %d\n",temp->data);
+}
 }
 
 
-
-
-
+void Count(sn **q)
+{
+sn *temp;
+temp=*q;
+int count=0;
+while(temp!=NULL)
+{
+count++;
+temp=temp->link;
+}
+printf("Number of elements in stack is %d\n",count);
+}
 
 int main()
 {
@@ -60,8 +78,8 @@ int ch,data;
 sn *p=NULL;
 while(1)
 {
-printf("Select option:::\n");
-printf("1.push\n2.pop\n3.display\n4.exit\n\n");
+printf("\nSelect option:::\n");
+printf("1.push\n2.pop\n3.display\n4.peek\n5.count\n6.exit\n\n");
 scanf("%d",&ch);
 
 	switch (ch)
@@ -79,6 +97,12 @@ scanf("%d",&ch);
 		display(&p);
 		break;
 	case 4:
+		StPeek(&p);
+		break;
+	case 5:
+		Count(&p);
+		break;
+	case 6:
 		exit(1);
 		break;
 	default:
@@ -92,116 +116,18 @@ return 0;
 
 
 
-
-
 /*
+
 pavani@TSHYD-033:~/Desktop$ gcc stackp.c 
 pavani@TSHYD-033:~/Desktop$ ./a.out 
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-1
-
-Enter data to push::
-23
-
 
 Select option:::
 1.push
 2.pop
 3.display
-4.exit
-
-1
-
-Enter data to push::
-34
-
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-2
-
-
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-3
-Stack elements are::
-23
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-1
-
-Enter data to push::
-23
-
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-1
-
-Enter data to push::
-2323
-
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-2
-
-
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-3
-Stack elements are::
-23
-23
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
-
-3
-Stack elements are::
-23
-23
-
-Select option:::
-1.push
-2.pop
-3.display
-4.exit
+4.peek
+5.count
+6.exit
 
 1
 
@@ -209,26 +135,135 @@ Enter data to push::
 12
 
 
+
 Select option:::
 1.push
 2.pop
 3.display
-4.exit
+4.peek
+5.count
+6.exit
+
+2
+
+
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
 
 3
 Stack elements are::
-12
-23
-23
+
 
 Select option:::
 1.push
 2.pop
 3.display
-4.exit
+4.peek
+5.count
+6.exit
+
+1
+
+Enter data to push::
+13
+
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+3
+Stack elements are::
+13
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+1
+
+Enter data to push::
+134
+
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+1
+
+Enter data to push::
+154
+
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+3
+Stack elements are::
+154
+134
+13
+
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+5
+Number of elements in stack is 3
+
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
 
 4
 
+top element is 154
 
+Select option:::
+1.push
+2.pop
+3.display
+4.peek
+5.count
+6.exit
+
+6
 */
-
